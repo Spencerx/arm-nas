@@ -40,7 +40,7 @@
 
 # TODO: See https://stackoverflow.com/a/46428282/100134
 # For now, manually run `sudo smbpasswd -a [samba username]`
-# Current accounts: jgeerling, zowiebox
+# Current accounts: jgeerling, jpgeerling, zowiebox
 - name: Configure Samba passwords (not yet implemented).
   ansible.builtin.meta: noop
   tags: ['samba']
