@@ -102,7 +102,7 @@ You can check on snapshot health with:
   - nas01: `sudo sanoid --monitor-snapshots && zfs list -t snapshot`
   - nas02: `zfs list -t snapshot`
 
-For example:
+For example (on either `nas01` or `nas02`):
 
 ```
 jgeerling@nas01:~$ sudo sanoid --monitor-snapshots
