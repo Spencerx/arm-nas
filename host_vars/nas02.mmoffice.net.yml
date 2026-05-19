@@ -23,15 +23,29 @@ zfs_samba_shares:
 # I would like to use that instead of running sanoid on the target, to keep all
 # sanoid/syncoid snapshots in perfect sync.
 sanoid_conf: >
-  [ssdpool/backup]
-    use_template = production
+  [ssdpool/backup/jupiter]
+    use_template = longterm
     recursive = yes
 
-  [template_production]
+  [ssdpool/backup/mercury]
+    use_template = shortterm
+    recursive = yes
+
+  [template_longterm]
     frequently = 0
     hourly = 24
     daily = 30
     monthly = 3
+    yearly = 0
+    autosnap = no
+    autoprune = yes
+
+  [template_shortterm]
+    frequently = 0
+    hourly = 24
+    daily = 7
+    weekly = 0
+    monthly = 0
     yearly = 0
     autosnap = no
     autoprune = yes

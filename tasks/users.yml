@@ -1,5 +1,5 @@
 ---
-- name: Create zowiebox user on HL15 for ingest.
+- name: Create extra users on HL15.
   ansible.builtin.user:
     name: "{{ item }}"
     shell: /usr/sbin/nologin
