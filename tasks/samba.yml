@@ -6,7 +6,7 @@
     option: "{{ item.option }}"
     value: "{{ item.value }}"
     backup: false
-    mode: 0644
+    mode: "0644"
   loop:
     - { option: usershare path, value: /var/lib/samba/usershares }
     - { option: usershare max shares, value: 100 }
@@ -23,7 +23,7 @@
     dest: /var/lib/samba/usershares/{{ item.smb_share_name }}
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
   loop: "{{ zfs_samba_shares }}"
   notify: restart smb
   tags: ['samba']
@@ -34,7 +34,7 @@
     state: directory
     owner: "{{ item.owner | default(zfs_samba_owner) }}"
     group: "{{ item.group | default(zfs_samba_group) }}"
-    mode: 2775
+    mode: "2775"
   loop: "{{ zfs_samba_shares }}"
   tags: ['samba']
 
