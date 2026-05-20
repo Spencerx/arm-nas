@@ -24,12 +24,14 @@ zfs_samba_shares:
       casesensitivity: 'mixed'
       compression: 'lz4'
     smb_share_name: jupiter
+    # group: "nas-sharers"  # Only owner gets full archive access
     smb_comment: Archival storage pool on HDDs.
   - name: nvmepool/mercury
     extra_zfs_properties:
       casesensitivity: 'mixed'
       compression: 'lz4'
     smb_share_name: mercury
+    group: "nas-sharers"
     smb_comment: Fast storage pool on NVMe.
   - name: nvmepool/ingest
     extra_zfs_properties:

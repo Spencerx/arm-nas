@@ -1,12 +1,27 @@
 ---
+- name: Create group for nas-sharers.
+  ansible.builtin.group:
+    name: "nas-sharers"
+    state: present
+
+- name: Make sure Ansible user is in nas-sharers group.
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    groups: "nas-sharers"
+    append: true
+
 - name: Create extra users on HL15.
   ansible.builtin.user:
-    name: "{{ item }}"
+    name: "{{ item.name }}"
+    groups: "{{ item.groups }}"
+    append: true
     shell: /usr/sbin/nologin
     create_home: false
     state: present
   run_once: true
   delegate_to: nas01.mmoffice.net
   with_items:
-    - zowiebox
-    - jpgeerling
+    - name: zowiebox
+      groups: ['zowiebox']
+    - name: jpgeerling
+      groups: ['nas-sharers']

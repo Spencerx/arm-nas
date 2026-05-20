@@ -34,7 +34,7 @@
     state: directory
     owner: "{{ item.owner | default(zfs_samba_owner) }}"
     group: "{{ item.group | default(zfs_samba_group) }}"
-    mode: 0775
+    mode: 2775
   loop: "{{ zfs_samba_shares }}"
   tags: ['samba']
 
